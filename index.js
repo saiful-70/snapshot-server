@@ -83,3 +83,5 @@ mongoose
     socketIo(io);
   })
   .catch((error) => console.log(error.message));
+
+export default server;
