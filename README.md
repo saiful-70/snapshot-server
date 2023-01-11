@@ -1,13 +1,15 @@
 # Snapshot Server
 
+This is the server of snapshot.
+
+## How to run
+
 Clone the repository and run
 
 ```bash
-npm install
-npm start
+npm install or yarn
+npm start or yarn start
 ```
-
-## How to run
 
 In the project you will see **.env.example** file, rename it to **.env** and edit that file as instructed.
 Then open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
