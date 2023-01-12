@@ -64,7 +64,6 @@ export const addRemoveFriends = async (req, res) => {
       friends: friend._id,
     });
 
-    console.log(count, "line 71");
     if (count > 0) {
       await User.updateOne({ _id: friendId }, { $pull: { friends: id } });
       await User.updateOne({ _id: id }, { $pull: { friends: friendId } });

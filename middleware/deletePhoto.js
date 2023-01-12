@@ -12,7 +12,6 @@ export const deletePostPhoto = async (req, res, next) => {
     const post = await Post.findOne({ _id: id });
 
     const picturePath = await post.picturePath;
-    console.log(picturePath);
     if (picturePath === "") {
       next();
     } else {

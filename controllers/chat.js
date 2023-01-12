@@ -5,7 +5,7 @@ export const createChat = async (req, res) => {
     const chat = await Chat.findOne({
       members: { $all: [req.params.id, req.params.friendId] },
     });
-    console.log(chat);
+    // console.log(chat);
     if (chat) {
       res.status(200).json(chat);
     } else {
