@@ -12,7 +12,7 @@ export const deletePostPhoto = async (req, res, next) => {
     const post = await Post.findOne({ _id: id });
 
     const picturePath = await post.picturePath;
-    console.log(picturePath);
+    console.log(picturePath.split(/\/|\./).at(-2));
     if (picturePath === "") {
       next();
     } else {
