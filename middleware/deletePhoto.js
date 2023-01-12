@@ -12,11 +12,11 @@ export const deletePostPhoto = async (req, res, next) => {
     const post = await Post.findOne({ _id: id });
 
     const picturePath = await post.picturePath;
-    console.log(picturePath.split(/\/|\./).at(-2));
+    console.log(picturePath);
     if (picturePath === "") {
       next();
     } else {
-      const public_id = await picturePath.split(/\/|\./).at(-2);
+      // const public_id = await picturePath.split(/\/|\./).at(-2);
       const postUserStringId = await post.userId.toString();
       if (postUserStringId !== userId) {
         return res
@@ -24,7 +24,7 @@ export const deletePostPhoto = async (req, res, next) => {
           .json({ message: "You are not author of this post!" });
       }
       cloudinary.uploader
-        .destroy(`snap-shot/post/${public_id}`)
+        .destroy(`snap-shot/post/${picturePath.split(/\/|\./).at(-2)}`)
         .then((result) => {
           next();
         })
