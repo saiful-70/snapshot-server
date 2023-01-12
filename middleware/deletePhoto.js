@@ -12,10 +12,11 @@ export const deletePostPhoto = async (req, res, next) => {
     const post = await Post.findOne({ _id: id });
 
     const picturePath = await post.picturePath;
+    console.log(picturePath);
     if (picturePath === "") {
       next();
     } else {
-      const public_id = await post.picturePath.split(/\/|\./).at(-2);
+      const public_id = await picturePath.split(/\/|\./).at(-2);
       const postUserStringId = await post.userId.toString();
       if (postUserStringId !== userId) {
         return res
